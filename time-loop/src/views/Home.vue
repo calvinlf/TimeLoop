@@ -9,7 +9,7 @@
         </p>
         <img src="/images/minding.jpg" alt="" class="rounded">
         <p></p>
-        <a href="/play" class="btn-lg btn-primary" role="button">Start!</a>
+        <button @click="$router.push('play')" class="btn-lg btn-primary">Start!</button>
         <p class="spaced"></p>
       </div>
     </div>
