@@ -16,7 +16,7 @@
     </nav>
     <router-view/>
     <footer class="bg-dark">
-      <p><a href="https://github.com/calvinlf/OpTimeLoop" class="text-info">GitHub Repo for nerds</a></p>
+      <p><a href="https://github.com/calvinlf/TimeLoop" class="text-info">GitHub Repo for nerds</a></p>
     </footer>
   </div>
 </template>
