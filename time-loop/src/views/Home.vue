@@ -9,7 +9,7 @@
         </p>
         <img src="/images/minding.jpg" alt="" class="rounded">
         <p></p>
-        <a href="/play.html" class="btn-lg btn-primary" role="button">Start!</a>
+        <a href="/play" class="btn-lg btn-primary" role="button">Start!</a>
         <p class="spaced"></p>
       </div>
     </div>
