@@ -30,8 +30,7 @@
             success: function() {
                 if (this.str === '5437' && !this.isOpen) {
                     this.$root.$data.current.text = 'The door opens!'
-                    this.$root.$data.current.buttonGoal[0].buttonsText.push('Go Forward')
-                    this.$root.$data.current.buttonGoal[0].text = 'You see more hallway in front of you. Now the door is open.'
+                    this.$root.$data.state.push('DoorOpen')
                 }
                 this.str = ''
             }

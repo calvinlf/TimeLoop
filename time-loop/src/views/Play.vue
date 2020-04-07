@@ -1,6 +1,6 @@
 <template>
   <div class="play">
-    <div class="centered bg-light">
+    <div class="bg-light">
       <br>
       <component v-if="comp" :is="comp"></component>
       <img v-if="img.length > 0" :src="img" class="w-50" alt="Image">
@@ -36,7 +36,7 @@
       followButton: function (text) {
         const isText = (element) => element === text
         const index = this.$root.$data.current.buttonsText.findIndex(isText)
-        this.$root.$data.current = this.$root.$data.current.buttonGoal[index]
+        this.$root.$data.current = this.$root.$data.rooms.find((r) => {return r.name === this.$root.$data.current.buttonGoal[index]})
       }
     },
     components: {
@@ -46,11 +46,6 @@
 </script>
 
 <style scoped>
-  .centered {
-    padding-left: 25%;
-    padding-right: 25%;
-  }
-
   .play {
     text-align: center !important;
   }
