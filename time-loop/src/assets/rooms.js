@@ -30,54 +30,11 @@ const rooms = [
         text: 'The path splits in front of you.',
         buttonsText: ['Go Left', 'Go Back', 'Go Right'],
         buttonGoal: ['left', 'start', 'right']
-    },
-    {
-        name: 'right',
-        img: '/images/space.jpg',
-        text: 'You look out a porthole and see space. As you look at the planet you realize it is Earth, but you have no idea what that means.',
-        buttonsText: ['Go Forward', 'Go Back'],
-        buttonGoal: ['deadEnd', 'corridor']
-    },
-    {
-        name: 'deadEnd',
-        img: '/images/attack.jpg',
-        text: 'As you turn a corner you see a guard in dark clothes. Before you can act he pulls out a small pistol. You hear no bang--only a click--as he shoots you. It hits you painfully in the chest. You slowly feel you life fading away as you are dragged down a corridor. You hear the guard mutter, "5-4-3-7". As he pulls you through the door you feel your life slipping away...',
-        buttonsText: ['Continue...'],
-        buttonGoal: ['start'],
-        comp: {
-            created: function () {
-                if (this.$root.$data.secrets.indexOf('Guard1') === -1) {
-                    this.$root.$data.secrets.push('Guard1')
-                } else if (this.$root.$data.secrets.indexOf('Guard2') === -1) {
-                    this.$root.$data.secrets.push('Guard2')
-                    this.$root.$data.current.text.concat('As you die you realize you might be able to dodge the guards bullets next time...')
-                } else if (this.$root.$data.state.indexOf('GuardDead') === -1) {
-                    this.$root.$data.state.push('GuardDead')
-                    this.$root.$data.current.text = 'This time you are ready for the guard. You dodge the bullets and punch his face as he tries to overcome his shock. He goes down hard. You grab his gun.'
-                    this.$root.$data.current.buttonsText = ['Go Back']
-                    this.$root.$data.current.buttonGoal = ['right']
-                    this.$root.$data.items.push({
-                        name: 'gun',
-                        image: '/images/gun.jpg'
-                    })
-                    return
-                } else {
-                    this.$root.$data.current.text = 'You see a dead guard'
-                    this.$root.$data.current.img = ''
-                    this.$root.$data.current.buttonsText = ['Go Back']
-                    this.$root.$data.current.buttonGoal = ['right']
-                    return
-                }
-                this.$root.$data.deaths += .5
-                this.$root.$data.items = []
-
-            }
-        }
-    },
-
+    }
 ]
 
 const alienWing = require('./alien-wing')
+const workWing = require('./work-wing')
 exports.getRooms = () => {
-    return [...rooms, ...alienWing.rooms];
+    return [...rooms, ...alienWing.rooms, ...workWing.rooms]
 }
