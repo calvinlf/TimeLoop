@@ -34,6 +34,7 @@
     },
     methods: {
       followButton: function (text) {
+        this.$root.$data.time += 1
         const isText = (element) => element === text
         const index = this.$root.$data.current.buttonsText.findIndex(isText)
         this.$root.$data.current = this.$root.$data.rooms.find((r) => {return r.name === this.$root.$data.current.buttonGoal[index]})

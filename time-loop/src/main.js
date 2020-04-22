@@ -16,7 +16,8 @@ let data = {
     name: 'cufflink',
     image: './images/cufflink.jpg'
   }],
-  state: []
+  state: [],
+  time: 0
 }
 
 new Vue({

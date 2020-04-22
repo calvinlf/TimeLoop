@@ -14,6 +14,7 @@ const rooms = [
                     this.$root.$data.current.text = 'You find yourself in a a steel utilitarian corridor.'
                 }
                 if (this.$root.$data.deaths%1 === .5) {
+                    this.$root.$data.state = 0
                     this.$root.$data.state = []
                     this.$root.$data.items = [{
                         name: 'cufflink',
@@ -35,6 +36,8 @@ const rooms = [
 
 const alienWing = require('./alien-wing')
 const workWing = require('./work-wing')
+const livingWing = require('./living-wing')
+const labWing = require('./lab-wing')
 exports.getRooms = () => {
-    return [...rooms, ...alienWing.rooms, ...workWing.rooms]
+    return [...rooms, ...alienWing.rooms, ...workWing.rooms, ...livingWing.rooms, ...labWing.rooms]
 }
