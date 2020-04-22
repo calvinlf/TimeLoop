@@ -2,19 +2,19 @@ exports.rooms = [
     {
         name: 'left',
         img: '',
-        text: 'You see more hallway in front of you. It appears that there is door to your right Labled Wyn and a hallway in front of.',
-        buttonsText: ['Check Door', 'Go Back', 'Go Down The Hall'],
-        buttonGoal: ['code', 'corridor', 'left2'],
+        text: '',
+        buttonsText: [],
+        buttonGoal: [],
         comp: {
             created: function () {
                 if (this.$root.$data.state.indexOf('DoorOpen') !== -1) {
                     this.$root.$data.current.text = 'You see more hallway in front of you. Now the door is open.'
-                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Through Door']
-                    this.$root.$data.current.buttonGoal = ['code', 'corridor', 'wyn']
+                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall', 'Go Through Door']
+                    this.$root.$data.current.buttonGoal = ['code', 'corridor', 'left2', 'wyn']
                 } else {
-                    this.$root.$data.current.text = 'You see more hallway in front of you. It appears that there is door blocking your way.'
-                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back']
-                    this.$root.$data.current.buttonGoal = ['code', 'corridor']
+                    this.$root.$data.current.text = 'You see more hallway in front of you.  It appears that there is door to your right labeled Wyn and a hallway in front of you.'
+                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall']
+                    this.$root.$data.current.buttonGoal = ['code', 'corridor', 'left2']
                 }
             }
         }
@@ -100,9 +100,9 @@ exports.rooms = [
     {
         name: 'suit-up',
         img: '',
-        text: 'You enter a room full of space suits and ventalators. You hear people talking behind you in the hallway.',
+        text: 'You enter a room full of space suits and ventilators. You hear people talking behind you in the hallway.',
         buttonsText: ['Hide', 'Scram', 'Confront those Dudes'],
-        buttonGoal: ['1suit-up', 'left3', 'left3-cofront'],
+        buttonGoal: ['1suit-up', 'left3', 'left3-confront'],
     },
     {
         name: '1fung',
@@ -128,7 +128,7 @@ exports.rooms = [
     {
         name: 'left3-confront',
         img: '',
-        text: 'You are shot by two gaurds',
+        text: 'You are shot by two guards',
         buttonsText: ['Ouchy'],
         buttonGoal: ['start'],
     },
