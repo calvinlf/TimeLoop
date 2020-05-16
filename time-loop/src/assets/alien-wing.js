@@ -154,7 +154,7 @@ exports.rooms = [
     {
         name: 'kirk',
         img: '',
-        text: `You see a gray humanoid sulking in the corner. It quickly confronts you and tells you "You're new here"`,
+        text: `You see a gray humanoid sulking in the corner. It quickly confronts you and tells you "You're new here."`,
         buttonsText: ['Respond', 'Scram'],
         buttonGoal: ['1kirk', 'left2'],
     },
@@ -189,35 +189,37 @@ exports.rooms = [
     {
         name: 'suit-up',
         img: '',
-        text: 'You enter a room full of space suits and ventilators. You hear people talking behind you in the hallway.',
+        text: 'You enter a stark room full of space suits and ventilators. You hear people talking behind you in the hallway.',
         buttonsText: ['Hide', 'Scram', 'Confront those Dudes'],
         buttonGoal: ['1suit-up', 'left3', 'left3-confront'],
     },
     {
         name: '1fung',
         img: '',
-        text: 'later',
+        text: 'It is actually quite peaceful, the blue moss covering the red bark is beautiful. You find walk around, and observe a medium' +
+        'sized window at the far end. You see movement behind it and decide it is time to leave.',
         buttonsText: ['leave'],
         buttonGoal: ['left3'],
     },
     {
         name: '1kirk',
         img: '',
-        text: 'later',
+        text: '"Why, yes I am... Kirk." Thinking fast, you remember the sign on the door. The gray humaniod seems to chuckle and '+
+        'replies, ""',
         buttonsText: ['leave'],
         buttonGoal: ['left2'],
     },
     {
         name: '1suit-up',
         img: '',
-        text: 'later',
+        text: 'Frantic, you crawl behind a large desk, and see two men walk by the enteramce of the room, pausing momentarily to look into the room, then turn around. Their chatting continues into the distance.',
         buttonsText: ['Admit it you\'re a Coward'],
         buttonGoal: ['start'],
     },
     {
         name: 'left3-confront',
         img: '',
-        text: 'You are shot by two guards',
+        text: 'Two gaurds see you, pause for only a second, and all goes black.',
         buttonsText: ['Ouchy'],
         buttonGoal: ['start'],
     },
