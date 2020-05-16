@@ -156,7 +156,34 @@ exports.rooms = [
         img: '',
         text: `You see a gray humanoid sulking in the corner. It quickly confronts you and tells you "You're new here."`,
         buttonsText: ['Respond', 'Scram'],
-        buttonGoal: ['1kirk', 'left2'],
+        buttonGoal: ['kirk', 'left2'],
+        comp: {
+            created: function () {
+                if (this.$root.$data.past === 'Ask him to to be your escape pilot') {
+                    if (this.$root.$data.secrets.indexOf('ReactorInfo') !== -1) {
+                        this.$root.$data.current.text = 'Kirk ask you how you are going to escape if the pod won\'t fly for you. You describe the reactor and how if it the alarm is triggered, then anyone can fly it. Kirk agrees to come with you'
+                        this.$root.$data.current.buttonsText = ['Go Back']
+                        this.$root.$data.current.buttonGoal = ['left2']
+                        this.$root.$data.items.push({
+                            image: './images/kirk.jpg',
+                            name: 'KirK'
+                        })
+                    } else {
+                        this.$root.$data.current.text = 'KirK says, "Have you figured out how to get the pod to work for you?'
+                        this.$root.$data.current.buttonsText = ['No...']
+                        this.$root.$data.current.buttonGoal = ['left2']
+                    }
+                } else if (this.$root.$data.secrets.indexOf('EscapePod') !== -1 && this.$root.$data.secrets.indexOf('KirkPilot') !== -1) {
+                    this.$root.$data.current.text = 'You see KirK'
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Ask him to to be your escape pilot']
+                    this.$root.$data.current.buttonGoal = ['left2', 'kirk']
+                } else {
+                    this.$root.$data.current.text = `You see a gray humanoid sulking in the corner. It quickly confronts you and tells you "You're new here."`
+                    this.$root.$data.current.buttonsText = ['Respond', 'Scram']
+                    this.$root.$data.current.buttonGoal = ['kirk', 'left2']
+                }
+            }
+        }
     },
     {
         name: 'fung',
@@ -200,14 +227,6 @@ exports.rooms = [
         'sized window at the far end. You see movement behind it and decide it is time to leave.',
         buttonsText: ['leave'],
         buttonGoal: ['left3'],
-    },
-    {
-        name: '1kirk',
-        img: '',
-        text: '"Why, yes I am... Kirk." Thinking fast, you remember the sign on the door. The gray humaniod seems to chuckle and '+
-        'replies, ""',
-        buttonsText: ['leave'],
-        buttonGoal: ['left2'],
     },
     {
         name: '1suit-up',

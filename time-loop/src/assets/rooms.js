@@ -4,8 +4,8 @@ const rooms = [
         text1: '',
         img: '/images/corridor.jpg',
         text: 'You find yourself in a a steel utilitarian corridor.',
-        buttonsText: ['Go Forward'],
-        buttonGoal: ['corridor'],
+        buttonsText: ['Go Forward', 'wait'],
+        buttonGoal: ['corridor', 'start'],
         comp: {
             created: function () {
                 if (this.$root.$data.deaths === .5) {

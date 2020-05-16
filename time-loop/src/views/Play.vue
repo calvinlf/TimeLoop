@@ -15,6 +15,11 @@
   import CodeBoard from '../components/CodeBoard'
   export default {
     name: 'Play',
+    data() {
+      return {
+        componentKey: 0,
+      };
+    },
     computed: {
       comp() {
         return this.$root.$data.current.comp
@@ -37,10 +42,19 @@
     },
     methods: {
       followButton: function (text) {
+        this.$root.$data.past = text
         this.$root.$data.time += 1
-        const isText = (element) => element === text
-        const index = this.$root.$data.current.buttonsText.findIndex(isText)
-        this.$root.$data.current = this.$root.$data.rooms.find((r) => {return r.name === this.$root.$data.current.buttonGoal[index]})
+        const isText = (element) => element === text // create function to find the index of button pushed
+        const index = this.$root.$data.current.buttonsText.findIndex(isText) // find the index of button pushed
+        if (this.$root.$data.current.name === this.$root.$data.current.buttonGoal[index]) {
+          const nextComp = this.$root.$data.current.comp
+          this.$root.$data.current.comp = {}
+          this.$nextTick(() => {
+            this.$root.$data.current.comp = nextComp
+          });
+          return
+        }
+        this.$root.$data.current = this.$root.$data.rooms.find((r) => {return r.name === this.$root.$data.current.buttonGoal[index]}) // change room
       }
     },
     components: {
