@@ -2,9 +2,9 @@
   <div class="play">
     <div class="bg-light">
       <br>
-      <component v-if="comp" :is="comp"></component>
+      <component v-if="comp" :is="comp" v-bind="props"></component>
       <img v-if="img.length > 0" :src="img" class="w-50" alt="Image">
-      <p>{{text}}</p>
+      <p v-html="text">{{text}}</p>
       <button v-for="buttonText in buttonsText" :key="buttonText" type="button" class="btn btn-primary btn-lg" v-on:click="followButton(buttonText)">{{buttonText}}</button>
       <br v-for="i in 5" :key="i">
     </div>
@@ -20,7 +20,7 @@
         return this.$root.$data.current.comp
       },
       img() {
-        return this.$root.$data.current.img
+        return this.$root.$data.current.img ? this.$root.$data.current.img : ''
       },
       text() {
         return this.$root.$data.current.text
@@ -30,6 +30,9 @@
       },
       buttonGoal() {
         return this.$root.$data.current.buttonGoal
+      },
+      props() {
+        return this.$root.$data.current.props ? this.$root.$data.current.props : {}
       }
     },
     methods: {

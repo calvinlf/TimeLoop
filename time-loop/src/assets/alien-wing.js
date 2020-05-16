@@ -7,25 +7,142 @@ exports.rooms = [
         buttonGoal: [],
         comp: {
             created: function () {
-                if (this.$root.$data.state.indexOf('DoorOpen') !== -1) {
+                if (this.$root.$data.state.indexOf('DoorOpen-wyn') !== -1) {
                     this.$root.$data.current.text = 'You see more hallway in front of you. Now the door is open.'
-                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall', 'Go Through Door']
-                    this.$root.$data.current.buttonGoal = ['code', 'corridor', 'left2', 'wyn']
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Go Down The Hall', 'Go Through Door']
+                    this.$root.$data.current.buttonGoal = ['corridor', 'left2', 'wyn']
                 } else {
-                    this.$root.$data.current.text = 'You see more hallway in front of you.  It appears that there is door to your right labeled Wyn and a hallway in front of you.'
+                    this.$root.$data.current.text = 'You see more hallway in front of you.  It appears that there is door to your right labeled <Strong>Wyn</Strong> and a hallway in front of you.'
                     this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall']
-                    this.$root.$data.current.buttonGoal = ['code', 'corridor', 'left2']
+                    this.$root.$data.current.buttonGoal = ['code-wyn', 'corridor', 'left2']
                 }
             }
         }
     },
     {
-        name: 'code',
+        name: 'code-wyn',
         img: '',
         text: 'It looks like will need to put in a code to open the door.',
         buttonsText: ['Go Back'],
         buttonGoal: ['left'],
-        comp: 'CodeBoard'
+        comp: 'CodeBoard',
+        props: { room: 'wyn'}
+    },
+    {
+        name: 'left2',
+        img: '',
+        text: '',
+        buttonsText: [],
+        buttonGoal: [],
+        comp: {
+            created: function () {
+                if (this.$root.$data.state.indexOf('DoorOpen-kirk') !== -1) {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. Now the door is open.'
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Go Down The Hall', 'Go Through Door']
+                    this.$root.$data.current.buttonGoal = ['corridor', 'left3', 'kirk']
+                } else {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. It appears that there is a door to the inside of the curve labeled <Strong>KirK</Strong> and a hallway continues.'
+                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall']
+                    this.$root.$data.current.buttonGoal = ['code-kirk', 'left', 'left3']
+                }
+            }
+        }
+    },
+    {
+        name: 'code-kirk',
+        img: '',
+        text: 'It looks like will need to put in a code to open the door.',
+        buttonsText: ['Go Back'],
+        buttonGoal: ['left2'],
+        comp: 'CodeBoard',
+        props: { room: 'kirk'}
+    },
+    {
+        name: 'left3',
+        img: '',
+        text: '',
+        buttonsText: [],
+        buttonGoal: [],
+        comp: {
+            created: function () {
+                if (this.$root.$data.state.indexOf('DoorOpen-kirk') !== -1) {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. Now the door is open.'
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Go Down The Hall', 'Go Through Door']
+                    this.$root.$data.current.buttonGoal = ['corridor', 'left4', 'fung']
+                } else {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. It appears that there is a door to the inside of the curve labeled <strong>FUNG</strong> and the hallway continues.'
+                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back', 'Go Down The Hall']
+                    this.$root.$data.current.buttonGoal = ['code-fung', 'left2', 'left4']
+                }
+            }
+        }
+    },
+    {
+        name: 'code-fung',
+        img: '',
+        text: 'It looks like will need to put in a code to open the door.',
+        buttonsText: ['Go Back'],
+        buttonGoal: ['left3'],
+        comp: 'CodeBoard',
+        props: { room: 'fung'}
+    },
+    {
+        name: 'left4',
+        img: '',
+        text: '',
+        buttonsText: [],
+        buttonGoal: [],
+        comp: {
+            created: function () {
+                if (this.$root.$data.state.indexOf('DoorOpen-lumaworm') !== -1) {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. Now the door is open. '
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Go Forward', 'Go Through Outside Door', 'Go Through Inside Door']
+                    this.$root.$data.current.buttonGoal = ['left3', 'left5', 'suit-up', 'lumaworm-air-lock']
+                } else {
+                    this.$root.$data.current.text = 'You see more hallway in front of you. Outward there is a door. It appears that there is a locked door to the inside of the curve labeled <strong>LUMAWORM</strong>'
+                    this.$root.$data.current.buttonsText = ['Check Inside Door', 'Go Back', 'Go Forward', 'Go Through Outside Door']
+                    this.$root.$data.current.buttonGoal = ['code-lumaworm', 'left3', 'left5', 'suit-up']
+                }
+            }
+        }
+    },
+    {
+        name: 'code-lumaworm',
+        img: '',
+        text: 'It looks like will need to put in a code to open the door.',
+        buttonsText: ['Go Back'],
+        buttonGoal: ['left4'],
+        comp: 'CodeBoard',
+        props: { room: 'lumaworm'}
+    },
+    {
+        name: 'left5',
+        img: '',
+        text: '',
+        buttonsText: [],
+        buttonGoal: [],
+        comp: {
+            created: function () {
+                if (this.$root.$data.state.indexOf('DoorOpen-clougae') !== -1) {
+                    this.$root.$data.current.text = 'You are at the end of the hall. Now the door is open. '
+                    this.$root.$data.current.buttonsText = ['Go Back', 'Go Through Door']
+                    this.$root.$data.current.buttonGoal = ['left4', 'clougae-air-lock']
+                } else {
+                    this.$root.$data.current.text = 'You see a porthole that ends the hallway. It appears that there is a door to the inside of the curve labeled <Strong>CLOUGAE.</Strong>'
+                    this.$root.$data.current.buttonsText = ['Check Door', 'Go Back']
+                    this.$root.$data.current.buttonGoal = ['code-clougae', 'left4']
+                }
+            }
+        }
+    },
+    {
+        name: 'code-clougae',
+        img: '',
+        text: 'It looks like will need to put in a code to open the door.',
+        buttonsText: ['Go Back'],
+        buttonGoal: ['left4'],
+        comp: 'CodeBoard',
+        props: { room: 'clougae'}
     },
     {
         name: 'wyn',
@@ -33,34 +150,6 @@ exports.rooms = [
         text: 'Yippie Skippie it\'s an enourmous tenticled face suckin\' monster!',
         buttonsText: ['Ouchy'],
         buttonGoal: ['start']
-    },
-    {
-        name: 'left2',
-        img: '',
-        text: 'You see more hallway in front of you. It appears that there is a door to the inside of the curve labled KirK and a hallway continues.',
-        buttonsText: ['Check Door', 'Go Back', 'Go Forward', 'Go Through Door'],
-        buttonGoal: ['code', 'left', 'left3', 'kirk'],
-    },
-    {
-        name: 'left3',
-        img: '',
-        text: 'You see more hallway in front of you. It appears that there is a door to the inside of the curve labeled <strong>FUNG</strong> and the hallway continues.',
-        buttonsText: ['Check Door', 'Go Back', 'Go Forward', 'Go Through Door'],
-        buttonGoal: ['code', 'left2', 'left4', 'fung'],
-    },
-    {
-        name: 'left4',
-        img: '',
-        text: 'You see a door labled SAFETY SUIT REQUIRED on the outside of the curve and another door on the inside of the curve labled LumaWorm and the hallway streches forth.',
-        buttonsText: ['Check Outside Door', 'Check Inside Door', 'Go Back', 'Go Forward', 'Go Through Outside Door', 'Go Through Inside Door'],
-        buttonGoal: ['code', 'code', 'left3', 'left5', 'suit-up', 'lumaworm-air-lock'],
-    },
-    {
-        name: 'left5',
-        img: '',
-        text: 'You see a porthole that ends the hallway. It appears that there is a door to the inside of the curve labeled CLOUGAE.',
-        buttonsText: ['Check Door', 'Go Back', 'Go Through Door'],
-        buttonGoal: ['code', 'left4', 'clougae-air-lock'],
     },
     {
         name: 'kirk',

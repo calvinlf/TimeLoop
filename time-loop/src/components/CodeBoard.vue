@@ -26,11 +26,14 @@
           str: '',
           isOpen: false
         }},
+        props: {
+            room: String
+        },
         methods: {
             success: function() {
                 if (this.str === '5437' && !this.isOpen) {
                     this.$root.$data.current.text = 'The door opens!'
-                    this.$root.$data.state.push('DoorOpen')
+                    this.$root.$data.state.push('DoorOpen-' + this.room)
                 }
                 this.str = ''
             }
