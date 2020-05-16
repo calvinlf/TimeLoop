@@ -65,7 +65,7 @@ exports.rooms = [
     },
     {
         name: 'server',
-        text: 'server',
+        text: 'The room is largely filled with a server. This must be ',
         img: '',
         buttonsText: ['Go Back'],
         buttonGoal: ['right4']
@@ -79,7 +79,7 @@ exports.rooms = [
     },
     {
         name: 'reactor',
-        text: 'reactor',
+        text: 'It seems to be the reactor room. Bright lights and large machines pulse around you.',
         img: '',
         buttonsText: ['Go Up'],
         buttonGoal: ['right4']
